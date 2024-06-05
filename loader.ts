@@ -1,15 +1,15 @@
-import setupRoutes from "./route";
-import startServer from "./server";
+import setupRoutes from './route';
+import startServer from './server';
 
 async function main() {
-  const { app } = await import("./app");
+    const { app } = await import('./app');
 
-  await startServer(app);
+    await startServer(app);
 
-  setupRoutes(app);
+    setupRoutes(app);
 }
 
 main().catch((error) => {
-  console.error("Error starting server:", error);
-  process.exit(1);
+    console.error('Error starting server:', error);
+    process.exit(1);
 });
