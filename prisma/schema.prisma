@@ -1,0 +1,41 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Race {
+    id                 Int                 @id @default(autoincrement())
+    timestamp          DateTime            @default(now())
+    startTime          DateTime
+    endTime            DateTime
+    speeds             Speed[]
+    orientationRecords OrientationRecord[]
+}
+
+model Speed {
+    id        Int      @id @default(autoincrement())
+    speed     Float
+    timestamp DateTime @default(now())
+    raceId    Int
+    race      Race     @relation(fields: [raceId], references: [id])
+}
+
+enum Orientation {
+    NORTH
+    EAST
+    SOUTH
+    WEST
+}
+
+model OrientationRecord {
+    id          Int         @id @default(autoincrement())
+    timestamp   DateTime    @default(now())
+    orientation Orientation @default(NORTH)
+    speed       Float
+    raceId      Int
+    race        Race        @relation(fields: [raceId], references: [id])
+}

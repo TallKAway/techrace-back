@@ -1,7 +1,6 @@
 import express, { json } from "express";
 
 
-// Create the Express application
 const app = express();
 
 // Define a setup function to initialize your application
