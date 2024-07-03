@@ -12,22 +12,22 @@ class MqttService {
   public connect() {
     this.client.on('connect', () => {
       console.log('MQTT connected');
-      this.subscribeToTopic('test');
+      this.subscribeToTopic(['test1', 'test2']);
     });
   }
 
   // Fonction pour s'abonner à un topic spécifique
-  private subscribeToTopic(topic: string) {
-    this.client.subscribe(topic, (err) => {
+  private subscribeToTopic(topics: string[]) {
+    this.client.subscribe(topics, (err) => {
       if (err) {
-        console.error(`Failed to subscribe to topic ${topic}:`, err);
+        console.error(`Failed to subscribe to topic ${topics}:`, err);
       } else {
-        console.log(`Subscribed to topic ${topic}`);
+        console.log(`Subscribed to topic ${topics}`);
       }
     });
 
     this.client.on('message', (receivedTopic, message) => {
-      if (receivedTopic === topic) {
+      if (topics.includes(receivedTopic)) {
         this.handleMessage(receivedTopic, message.toString());
       }
     });
