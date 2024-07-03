@@ -10,18 +10,21 @@ datasource db {
 model Race {
     id                 Int                 @id @default(autoincrement())
     timestamp          DateTime            @default(now())
-    startTime          DateTime
-    endTime            DateTime
+    start_Time         DateTime
+    end_Time           DateTime
+    distance           Float
     speeds             Speed[]
     orientationRecords OrientationRecord[]
 }
 
 model Speed {
-    id        Int      @id @default(autoincrement())
-    speed     Float
-    timestamp DateTime @default(now())
-    raceId    Int
-    race      Race     @relation(fields: [raceId], references: [id])
+    id            Int      @id @default(autoincrement())
+    speed         Float
+    max_Speed     Float
+    average_Speed Float
+    timestamp     DateTime @default(now())
+    raceId        Int
+    race          Race     @relation(fields: [raceId], references: [id])
 }
 
 enum Orientation {
