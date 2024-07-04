@@ -1,9 +1,11 @@
-import { Request, Response, Express } from "express";
+import { Express, Router } from 'express';
 
+import raceRoute from './router/race.route';
 
-import  testRoute  from "./router/test.route";
+const apiRouter = Router();
 
+apiRouter.use('/race', raceRoute);
 
 export default function setupRoutes(app: Express) {
-  app.use("/", testRoute);
+  app.use('/api', apiRouter);
 }
