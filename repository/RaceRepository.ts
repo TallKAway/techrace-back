@@ -10,6 +10,18 @@ const getAllRaces = async (): Promise<IRace[]> => {
   }
 };
 
+const createRace = async (race: Omit<IRace, 'id'>): Promise<IRace> => {
+  try {
+    return await prisma.race.create({
+      data: race,
+    });
+  } catch (error) {
+    console.error('Error creating race:', error);
+    throw error;
+  }
+};
+
 export default {
   getAllRaces,
+  createRace,
 };
