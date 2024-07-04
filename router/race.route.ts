@@ -4,6 +4,6 @@ import RaceController from '../controllers/RaceController';
 
 const route = Router();
 
-route.get('/all', RaceController.getAllRaces);
+route.get('/all', RaceController.getRaces);
 
 export default route;

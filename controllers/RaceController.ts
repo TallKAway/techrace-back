@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import RaceRepository from '../repository/RaceRepository';
 
-async function getAllRaces(_: Request, res: Response) {
+const getRaces = async (_: Request, res: Response) => {
   try {
     const races = await RaceRepository.getAllRaces();
     res.status(200).json({
@@ -16,8 +16,8 @@ async function getAllRaces(_: Request, res: Response) {
       res.status(400).json({ error: 'An unknown error occurred' });
     }
   }
-}
+};
 
 export default {
-  getAllRaces,
+  getRaces,
 };
