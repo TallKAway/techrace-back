@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-const RaceController = require('../controllers/RaceController');
+import RaceController from '../controllers/RaceController';
 
 const route = Router();
 

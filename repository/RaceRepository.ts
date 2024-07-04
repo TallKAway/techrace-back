@@ -1,5 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+import { prisma } from '../utils/database';
 
 async function getAllRaces() {
   try {
@@ -10,6 +9,6 @@ async function getAllRaces() {
   }
 }
 
-module.exports = {
+export default {
   getAllRaces,
 };

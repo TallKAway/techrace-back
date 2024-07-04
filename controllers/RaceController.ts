@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-const RaceRepository = require('../repository/RaceRepository');
+import RaceRepository from '../repository/RaceRepository';
 
 async function getAllRaces(_: Request, res: Response) {
   try {
@@ -18,6 +18,6 @@ async function getAllRaces(_: Request, res: Response) {
   }
 }
 
-module.exports = {
+export default {
   getAllRaces,
 };
