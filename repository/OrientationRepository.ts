@@ -23,7 +23,21 @@ const getAllOrientationsById = async (id: number): Promise<IOrientation[]> => {
   }
 };
 
+const getAllOrientationsByRaceId = async (raceId: number): Promise<IOrientation[]> => {
+  try {
+    return await prisma.orientationRecord.findMany({
+      where: {
+        raceId,
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching orientations:', error);
+    throw error;
+  }
+};
+
 export default {
   getAllOrientations,
   getAllOrientationsById,
+  getAllOrientationsByRaceId,
 };
