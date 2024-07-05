@@ -23,7 +23,21 @@ const getAllSpeedsById = async (id: number): Promise<ISpeed[]> => {
   }
 };
 
+const getAllSpeedsByRaceId = async (raceId: number): Promise<ISpeed[]> => {
+  try {
+    return await prisma.speed.findMany({
+      where: {
+        raceId,
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching speeds:', error);
+    throw error;
+  }
+};
+
 export default {
   getAllSpeeds,
   getAllSpeedsById,
+  getAllSpeedsByRaceId,
 };

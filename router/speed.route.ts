@@ -7,5 +7,6 @@ const route = Router();
 // Method: GET
 route.get('/all', SpeedController.getSpeeds);
 route.get('/all/:id', SpeedController.getSpeedsById);
+route.get('/all/race/:id', SpeedController.getSpeedsByRaceId);
 
 export default route;
