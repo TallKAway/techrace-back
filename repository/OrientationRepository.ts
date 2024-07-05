@@ -10,6 +10,20 @@ const getAllOrientations = async (): Promise<IOrientation[]> => {
   }
 };
 
+const getAllOrientationsById = async (id: number): Promise<IOrientation[]> => {
+  try {
+    return await prisma.orientationRecord.findMany({
+      where: {
+        id,
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching orientations:', error);
+    throw error;
+  }
+};
+
 export default {
   getAllOrientations,
+  getAllOrientationsById,
 };
