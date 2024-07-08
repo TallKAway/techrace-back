@@ -10,7 +10,7 @@ const getOrientations = async (_: Request, res: Response): Promise<void> => {
       status: 'success',
       data: orientations,
     });
-  } catch (error: any) {
+  } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
@@ -27,7 +27,7 @@ const getOrientationsById = async (req: Request, res: Response): Promise<void> =
       status: 'success',
       data: orientations,
     });
-  } catch (error: any) {
+  } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
@@ -44,7 +44,7 @@ const getOrientationsByRaceId = async (req: Request, res: Response): Promise<voi
       status: 'success',
       data: orientations,
     });
-  } catch (error: any) {
+  } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
