@@ -2,6 +2,8 @@
  * @swagger
  * /api/speed/all:
  *   get:
+ *     tags:
+ *       - Speed
  *     summary: Get all speed records
  *     description: Returns a list of all speed records
  *     produces:
@@ -53,6 +55,8 @@
  * @swagger
  * /api/speed/all/{id}:
  *   get:
+ *     tags:
+ *       - Speed
  *     summary: Get speed record by ID
  *     description: Returns a single speed record by its ID
  *     produces:
@@ -109,6 +113,8 @@
  * @swagger
  * /api/speed/all/race/{id}:
  *   get:
+ *     tags:
+ *       - Speed
  *     summary: Get all speed records for a specific race
  *     description: Returns a list of all speed records for a specific race by its ID
  *     produces:
