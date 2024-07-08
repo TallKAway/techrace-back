@@ -19,11 +19,20 @@ npm install
 Créer le fichier .env et ajouter la connexion a la base de données et le numero du port
 
 ```sh
+# Numero du port
+PORT="3002"
+
+# Timeout
+TIMEOUT="60000"
+
+# Environnement
+NODE_ENV="development"
+
 # Access a la base de donnees
 DATABASE_URL="postgresql://user:password@host:port/database"
 
-# Numero du port
-PORT=3002
+# API KEY
+PORT="key"
 ```
 
 Démarrer le projet en mode dev
