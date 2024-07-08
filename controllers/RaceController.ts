@@ -10,7 +10,7 @@ const getRaces = async (_: Request, res: Response): Promise<void> => {
       status: 'success',
       data: races,
     });
-  } catch (error: any) {
+  } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
