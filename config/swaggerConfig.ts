@@ -9,7 +9,7 @@ const options = {
       description: 'Documentation for the Techrace API',
     },
   },
-  apis: ['./controllers/*.ts'],
+  apis: ['./docs/swagger/*.ts'],
 };
 
 const specs = swaggerJsdoc(options);

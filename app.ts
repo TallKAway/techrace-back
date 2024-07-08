@@ -1,7 +1,7 @@
 import express, { json } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
-import swaggerSpec from './docs/swaggerConfig';
+import swaggerSpec from './config/swaggerConfig';
 
 const app = express();
 
