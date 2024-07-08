@@ -9,8 +9,7 @@ const getSpeeds = async (_: Request, res: Response): Promise<void> => {
       status: 'success',
       data: speeds,
     });
-  } catch (err) {
-    const error = err as Error;
+  } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
@@ -27,8 +26,7 @@ const getSpeedsById = async (req: Request, res: Response): Promise<void> => {
       status: 'success',
       data: speeds,
     });
-  } catch (err) {
-    const error = err as Error;
+  } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
@@ -45,8 +43,7 @@ const getSpeedsByRaceId = async (req: Request, res: Response): Promise<void> => 
       status: 'success',
       data: speeds,
     });
-  } catch (err) {
-    const error = err as Error;
+  } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
