@@ -1,6 +1,6 @@
 /**
  * @swagger
- * /race/all:
+ * /api/race/all:
  *   get:
  *     tags:
  *       - Race
@@ -52,7 +52,7 @@
 
 /**
  * @swagger
- * /race/{id}:
+ * /api/race/{id}:
  *   get:
  *     tags:
  *       - Race
