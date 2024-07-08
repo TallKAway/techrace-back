@@ -2,6 +2,8 @@
  * @swagger
  * /race/all:
  *   get:
+ *     tags:
+ *       - Race
  *     summary: Get all races
  *     description: Returns a list of all races
  *     produces:
@@ -52,6 +54,8 @@
  * @swagger
  * /race/{id}:
  *   get:
+ *     tags:
+ *       - Race
  *     summary: Get race by ID
  *     description: Returns a single race by its ID
  *     produces:
