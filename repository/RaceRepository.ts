@@ -10,6 +10,20 @@ const getAllRaces = async (): Promise<IRace[]> => {
   }
 };
 
+const getRaceById = async (id: number): Promise<IRace | null> => {
+  try {
+    return await prisma.race.findUnique({
+      where: {
+        id,
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching race:', error);
+    throw error;
+  }
+};
+
 export default {
   getAllRaces,
+  getRaceById,
 };
