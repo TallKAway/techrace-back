@@ -46,7 +46,7 @@ npm run dev
 Pour accéder à la documentation,
 
 ```sh
-# Tapper  l'url suivant dan votre navigateur
+# Tapper l'url suivant dans votre navigateur
 
 http://localhost:3002/api-docs/
 ```
