@@ -20,19 +20,19 @@ Créer le fichier .env et ajouter la connexion a la base de données et le numer
 
 ```sh
 # Numero du port
-PORT="3002"
+PORT=3002
 
 # Timeout
-TIMEOUT="60000"
+TIMEOUT=60000
 
 # Environnement
-NODE_ENV="development"
+NODE_ENV=development
 
 # Access a la base de donnees
-DATABASE_URL="postgresql://user:password@host:port/database"
+DATABASE_URL=postgresql://user:password@host:port/database
 
 # API KEY
-PORT="key"
+API_KEY=random_key
 ```
 
 Démarrer le projet en mode dev
