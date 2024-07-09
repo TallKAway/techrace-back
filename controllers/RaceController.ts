@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import RaceRepository from '../repository/RaceRepository';
+import { IRace } from '../models/RaceModel';
 
 const getRaces = async (_: Request, res: Response): Promise<void> => {
   try {
@@ -36,7 +37,43 @@ const getRace = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+const getRacesSortedByDate = async (_: Request, res: Response): Promise<void> => {
+  try {
+    const races: Array<IRace> = await RaceRepository.getAllRaces();
+
+    const racesSortedByDate: { [key: string]: IRace[] } = groupByDate(races);
+
+    res.status(200).json({
+      status: 'success',
+      data: racesSortedByDate,
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(400).json({ error: error.message });
+    } else {
+      res.status(400).json({ error: 'An unknown error occurred' });
+    }
+  }
+};
+
+const groupByDate = (races: IRace[]): { [key: string]: IRace[] } => {
+  const groupedRaces: { [key: string]: IRace[] } = {};
+
+  races.forEach((race) => {
+    const date = race.start_Time.toISOString().split('T')[0];
+
+    if (!groupedRaces[date]) {
+      groupedRaces[date] = [];
+    }
+
+    groupedRaces[date].push(race);
+  });
+
+  return groupedRaces;
+};
+
 export default {
   getRaces,
   getRace,
+  getRacesSortedByDate,
 };
