@@ -1,3 +1,5 @@
+version: '3.9'
+
 services:
     mosquitto:
         image: eclipse-mosquitto
@@ -6,3 +8,15 @@ services:
             - "9001:9001"
         volumes:
             - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    database:
+        image: postgres
+        command: postgres -c listen_addresses='*'
+        restart: always
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+            POSTGRES_DB: techrace_db
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./prisma/migrations/20240703093730_init:/docker-entrypoint-initdb.d
