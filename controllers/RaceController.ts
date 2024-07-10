@@ -57,6 +57,7 @@ const getRacesSortedByDate = async (_: Request, res: Response): Promise<void> =>
 };
 
 const groupByDate = (races: IRace[]): Array<{ [key: string]: IRace[] }> => {
+
   const groupedRaces: { [key: string]: IRace[] } = {};
 
   races.forEach((race) => {
