@@ -52,8 +52,26 @@ const getSpeedsByRaceId = async (req: Request, res: Response): Promise<void> => 
   }
 };
 
+const getSpeedByRaceId = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const speed = await SpeedRepository.getSpeedByRaceId(Number(id));
+    res.status(200).json({
+      status: 'success',
+      data: speed,
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(400).json({ error: error.message });
+    } else {
+      res.status(400).json({ error: 'An unknown error occurred' });
+    }
+  }
+};
+
 export default {
   getSpeeds,
   getSpeedsById,
   getSpeedsByRaceId,
+  getSpeedByRaceId,
 };

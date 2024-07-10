@@ -4,4 +4,5 @@ export interface ISpeed {
   max_Speed: number;
   average_Speed: number;
   timestamp: Date;
+  raceId: number;
 }
