@@ -3,7 +3,11 @@ import { IRace } from '../models/RaceModel';
 
 const getAllRaces = async (): Promise<IRace[]> => {
   try {
-    return await prisma.race.findMany();
+    return await prisma.race.findMany({
+      orderBy: {
+        start_Time: 'desc',
+      },
+    });
   } catch (error) {
     console.error('Error fetching races:', error);
     throw error;
