@@ -41,7 +41,7 @@ const getRacesSortedByDate = async (_: Request, res: Response): Promise<void> =>
   try {
     const races: Array<IRace> = await RaceRepository.getAllRaces();
 
-    const racesSortedByDate: { [key: string]: IRace[] } = groupByDate(races);
+    const racesSortedByDate: Array<{ [key: string]: IRace[] }> = groupByDate(races);
 
     res.status(200).json({
       status: 'success',
@@ -56,7 +56,7 @@ const getRacesSortedByDate = async (_: Request, res: Response): Promise<void> =>
   }
 };
 
-const groupByDate = (races: IRace[]): { [key: string]: IRace[] } => {
+const groupByDate = (races: IRace[]): Array<{ [key: string]: IRace[] }> => {
   const groupedRaces: { [key: string]: IRace[] } = {};
 
   races.forEach((race) => {
@@ -69,7 +69,7 @@ const groupByDate = (races: IRace[]): { [key: string]: IRace[] } => {
     groupedRaces[date].push(race);
   });
 
-  return groupedRaces;
+  return [groupedRaces];
 };
 
 export default {
