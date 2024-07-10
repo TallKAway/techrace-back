@@ -36,8 +36,20 @@ const getAllSpeedsByRaceId = async (raceId: number): Promise<ISpeed[]> => {
   }
 };
 
+const getSpeedByRaceId = async (raceId: number): Promise<ISpeed | null> => {
+  try {
+    return await prisma.speed.findFirst({
+      where: { raceId },
+    });
+  } catch (error) {
+    console.error('Error fetching speed:', error);
+    throw error;
+  }
+};
+
 export default {
   getAllSpeeds,
   getAllSpeedsById,
   getAllSpeedsByRaceId,
+  getSpeedByRaceId,
 };
