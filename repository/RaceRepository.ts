@@ -12,11 +12,22 @@ const getAllRaces = async (): Promise<IRace[]> => {
 
 const getRaceById = async (id: number): Promise<IRace | null> => {
   try {
-    return await prisma.race.findUnique({
+    const race = await prisma.race.findUnique({
       where: {
         id,
       },
+      include: {
+        speeds: {
+          take: 1,
+        },
+      },
     });
+
+    if (race) {
+      race.speeds = race.speeds.slice(0, 1);
+    }
+
+    return race;
   } catch (error) {
     console.error('Error fetching race:', error);
     throw error;
