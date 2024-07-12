@@ -23,7 +23,7 @@ model Speed {
     max_Speed     Float
     average_Speed Float
     timestamp     DateTime @default(now())
-    raceId        Int
+    raceId        Int      @unique
     race          Race     @relation(fields: [raceId], references: [id])
 }
 
