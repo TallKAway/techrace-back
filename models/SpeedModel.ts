@@ -1,6 +1,8 @@
+import { JsonValue } from '@prisma/client/runtime/library';
+
 export interface ISpeed {
   id: number;
-  speed: number;
+  speeds: JsonValue;
   max_Speed: number;
   average_Speed: number;
   timestamp: Date;

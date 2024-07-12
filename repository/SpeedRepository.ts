@@ -10,9 +10,9 @@ const getAllSpeeds = async (): Promise<ISpeed[]> => {
   }
 };
 
-const getAllSpeedsById = async (id: number): Promise<ISpeed[]> => {
+const getSpeedById = async (id: number): Promise<ISpeed | null> => {
   try {
-    return await prisma.speed.findMany({
+    return await prisma.speed.findUnique({
       where: {
         id,
       },
@@ -23,22 +23,9 @@ const getAllSpeedsById = async (id: number): Promise<ISpeed[]> => {
   }
 };
 
-const getAllSpeedsByRaceId = async (raceId: number): Promise<ISpeed[]> => {
-  try {
-    return await prisma.speed.findMany({
-      where: {
-        raceId,
-      },
-    });
-  } catch (error) {
-    console.error('Error fetching speeds:', error);
-    throw error;
-  }
-};
-
 const getSpeedByRaceId = async (raceId: number): Promise<ISpeed | null> => {
   try {
-    return await prisma.speed.findFirst({
+    return await prisma.speed.findUnique({
       where: { raceId },
     });
   } catch (error) {
@@ -49,7 +36,6 @@ const getSpeedByRaceId = async (raceId: number): Promise<ISpeed | null> => {
 
 export default {
   getAllSpeeds,
-  getAllSpeedsById,
-  getAllSpeedsByRaceId,
+  getSpeedById,
   getSpeedByRaceId,
 };

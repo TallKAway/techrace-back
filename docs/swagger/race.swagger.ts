@@ -87,20 +87,54 @@
  *                   properties:
  *                     id:
  *                       type: integer
- *                       example: 3
+ *                       example: 1
  *                     timestamp:
  *                       type: string
  *                       format: date-time
- *                       example: 2023-07-01T11:00:00.000Z
+ *                       example: 2024-01-08T11:59:48.000Z
  *                     start_Time:
  *                       type: string
  *                       format: date-time
- *                       example: 2023-07-01T11:00:00.000Z
+ *                       example: 2024-01-08T11:59:48.000Z
  *                     end_Time:
  *                       type: string
  *                       format: date-time
- *                       example: 2023-07-01T11:05:00.000Z
+ *                       example: 2024-01-08T14:59:48.000Z
  *                     distance:
  *                       type: integer
- *                       example: 54546
+ *                       example: 200
+ *                     speeds:
+ *                       type: array
+ *                       items:
+ *                         type: object
+ *                         properties:
+ *                           id:
+ *                             type: integer
+ *                             example: 1
+ *                           speeds:
+ *                             type: array
+ *                             items:
+ *                               type: object
+ *                               properties:
+ *                                 date:
+ *                                   type: string
+ *                                   format: date-time
+ *                                   example: 2024-07-11T18:00:00.000Z
+ *                                 speed:
+ *                                   type: integer
+ *                                   example: 12
+ *                           max_Speed:
+ *                             type: integer
+ *                             example: 15
+ *                           average_Speed:
+ *                             type: number
+ *                             format: float
+ *                             example: 13.5
+ *                           timestamp:
+ *                             type: string
+ *                             format: date-time
+ *                             example: 2024-01-08T11:59:48.000Z
+ *                           raceId:
+ *                             type: integer
+ *                             example: 1
  */

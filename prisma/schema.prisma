@@ -15,15 +15,16 @@ model Race {
     distance           Float
     speeds             Speed[]
     orientationRecords OrientationRecord[]
+    battery            Battery[]
 }
 
 model Speed {
     id            Int      @id @default(autoincrement())
-    speed         Float
+    speeds        Json
     max_Speed     Float
     average_Speed Float
     timestamp     DateTime @default(now())
-    raceId        Int
+    raceId        Int      @unique
     race          Race     @relation(fields: [raceId], references: [id])
 }
 
@@ -41,4 +42,15 @@ model OrientationRecord {
     speed       Float
     raceId      Int
     race        Race        @relation(fields: [raceId], references: [id])
+}
+
+model Battery {
+    id               Int      @id @default(autoincrement())
+    battery_consumed Float
+    battery_level    Json
+    start_voltage    Float
+    end_voltage      Float
+    timestamp        DateTime @default(now())
+    raceId           Int      @unique
+    race             Race     @relation(fields: [raceId], references: [id])
 }
