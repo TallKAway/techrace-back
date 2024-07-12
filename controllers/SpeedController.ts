@@ -18,10 +18,10 @@ const getSpeeds = async (_: Request, res: Response): Promise<void> => {
   }
 };
 
-const getSpeedsById = async (req: Request, res: Response): Promise<void> => {
+const getSpeedById = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const speeds = await SpeedRepository.getAllSpeedsById(Number(id));
+    const speeds = await SpeedRepository.getSpeedById(Number(id));
     res.status(200).json({
       status: 'success',
       data: speeds,
@@ -54,6 +54,6 @@ const getSpeedByRaceId = async (req: Request, res: Response): Promise<void> => {
 
 export default {
   getSpeeds,
-  getSpeedsById,
+  getSpeedById,
   getSpeedByRaceId,
 };
