@@ -19,7 +19,7 @@ model Race {
 
 model Speed {
     id            Int      @id @default(autoincrement())
-    speed         Float
+    speeds        Json
     max_Speed     Float
     average_Speed Float
     timestamp     DateTime @default(now())
