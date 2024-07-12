@@ -35,23 +35,6 @@ const getSpeedsById = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-const getSpeedsByRaceId = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const { id } = req.params;
-    const speeds = await SpeedRepository.getAllSpeedsByRaceId(Number(id));
-    res.status(200).json({
-      status: 'success',
-      data: speeds,
-    });
-  } catch (error) {
-    if (error instanceof Error) {
-      res.status(400).json({ error: error.message });
-    } else {
-      res.status(400).json({ error: 'An unknown error occurred' });
-    }
-  }
-};
-
 const getSpeedByRaceId = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
@@ -72,6 +55,5 @@ const getSpeedByRaceId = async (req: Request, res: Response): Promise<void> => {
 export default {
   getSpeeds,
   getSpeedsById,
-  getSpeedsByRaceId,
   getSpeedByRaceId,
 };
