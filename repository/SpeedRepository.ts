@@ -25,8 +25,8 @@ const getSpeedById = async (id: number): Promise<ISpeed | null> => {
 
 const getSpeedByRaceId = async (raceId: number): Promise<ISpeed | null> => {
   try {
-    return await prisma.speed.findUnique({
-      where: { raceId },
+    return await prisma.speed.findFirst({
+      where: { raceId: raceId },
     });
   } catch (error) {
     console.error('Error fetching speed:', error);

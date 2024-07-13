@@ -24,7 +24,7 @@ model Speed {
     max_Speed     Float
     average_Speed Float
     timestamp     DateTime @default(now())
-    raceId        Int      @unique
+    raceId        Int
     race          Race     @relation(fields: [raceId], references: [id])
 }
 
@@ -51,6 +51,6 @@ model Battery {
     start_voltage    Float
     end_voltage      Float
     timestamp        DateTime @default(now())
-    raceId           Int      @unique
+    raceId           Int
     race             Race     @relation(fields: [raceId], references: [id])
 }
