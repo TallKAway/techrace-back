@@ -40,8 +40,6 @@ let dataReceived: { [key: string]: boolean } = {
 };
 
 async function eventAction(topic: string, message: string) {
-  console.log('eventAction', topic, message);
-
   try {
     const data = JSON.parse(message);
     switch (topic) {
@@ -81,15 +79,14 @@ async function eventAction(topic: string, message: string) {
 
       default:
         console.log(`Unhandled topic: ${topic}`);
+        break;
     }
 
     // Vérifiez si toutes les données nécessaires ont été reçues
     if (dataReceived.speed && dataReceived.distance && dataReceived.battery) {
       const formattedData = transformRaceData(raceData);
-      console.log(formattedData);
-      const result = await RaceRepository.createRace(formattedData as IRace);
-      console.log('Data stored successfully');
-      console.log(result);
+
+      await RaceRepository.createRace(formattedData as IRace);
 
       // Réinitialisez les données après le traitement
       raceData = {
