@@ -5,14 +5,25 @@ class MqttService {
   private client: mqtt.MqttClient;
 
   constructor() {
-    this.client = mqtt.connect('mqtt://192.168.204.168:1883');
+    this.client = mqtt.connect('mqtt://192.168.0.100:1883');
   }
 
   // Fonction pour se connecter au broker MQTT
   public connect() {
     this.client.on('connect', () => {
       console.log('MQTT connected');
-      this.subscribeToTopic(['esp32/track', 'esp32/sonar', 'esp32/light']);
+      this.subscribeToTopic([
+        'esp32/track',
+        'esp32/sonar',
+        'esp32/light',
+        'esp32/graph/battery',
+        'esp32/graph/speed',
+        'esp32/battery/voltage',
+        'esp32/battery/percentage',
+        'esp32/statistics/speed',
+        'esp32/statistics/distance',
+        'esp32/race/status',
+      ]);
     });
   }
 
