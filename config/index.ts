@@ -11,6 +11,8 @@ interface Config {
   port: number;
   node_env: string;
   timeout: number;
+  database_url: string;
+  api_key: string;
 }
 
 // Define a map with validation functions for each type
@@ -33,10 +35,12 @@ const envSpecs: { [key in keyof Config]: EnvVarType } = {
   port: EnvVarType.NUMBER,
   node_env: EnvVarType.STRING,
   timeout: EnvVarType.NUMBER,
+  database_url: EnvVarType.STRING,
+  api_key: EnvVarType.STRING,
 };
 
 function loadConfig(): Config | undefined {
-  let config: Partial<Config> = {};
+  const config: Partial<Config> = {};
 
   for (const [key, type] of Object.entries(envSpecs)) {
     const envValue = process.env[key.toUpperCase()];
