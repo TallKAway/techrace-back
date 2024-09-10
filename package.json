@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "dev": "nodemon --exec ts-node loader.ts",
-    "start": "node app.ts",
+    "start": "node dist/loader.js",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:generate": "npx prisma generate",
     "prisma:pull": "npx prisma db pull",
