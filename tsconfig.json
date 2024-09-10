@@ -6,8 +6,22 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",  
+    "rootDir": ".",    
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*", "__test__/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "*.ts",             
+    "config/**/*.ts",  
+    "controllers/**/*.ts",  
+    "middleware/**/*.ts",   
+    "models/**/*.ts",       
+    "prisma/**/*.ts",       
+    "repository/**/*.ts",   
+    "router/**/*.ts",      
+    "service/**/*.ts",      
+    "utils/**/*.ts",        
+    "__test__/**/*.ts"      
+  ],
+  "exclude": ["node_modules", "dist"]  
 }
