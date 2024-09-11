@@ -5,7 +5,7 @@ class MqttService {
   private client: mqtt.MqttClient;
 
   constructor() {
-    this.client = mqtt.connect('mqtt://192.168.0.100:1883');
+    this.client = mqtt.connect(String(process.env.MQTT_URL));
   }
 
   // Fonction pour se connecter au broker MQTT
