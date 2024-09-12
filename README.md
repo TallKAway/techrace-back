@@ -10,29 +10,44 @@
 
 ## Installation
 
+Créer le fichier .env et ajouter la connexion a la base de données et le numero du port
+
+```sh
+PORT=3002
+
+TIMEOUT=60000
+
+NODE_ENV=development
+
+DATABASE_URL=postgresql://user:password@host:port/database
+
+MQTT_URL=mqtt://192.168.0.100:1883
+
+API_KEY=key
+```
+
 Installer les dépendences du projet
 
 ```sh
 npm install
 ```
 
-Créer le fichier .env et ajouter la connexion a la base de données et le numero du port
+Lancer Docker et démarrer les services
 
 ```sh
-# Numero du port
-PORT=3002
+docker-compose up --build
+```
 
-# Timeout
-TIMEOUT=60000
+Appliquer les migrations
 
-# Environnement
-NODE_ENV=development
+```sh
+npx prisma migrate dev
+```
 
-# Access a la base de donnees
-DATABASE_URL=postgresql://user:password@host:port/database
+Générer le client prisma
 
-# API KEY
-API_KEY=random_key
+```sh
+npx prisma generate
 ```
 
 Démarrer le projet en mode dev
