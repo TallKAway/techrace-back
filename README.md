@@ -21,7 +21,7 @@ NODE_ENV=development
 
 DATABASE_URL=postgresql://user:password@host:port/database
 
-MQTT_URL=mqtt://192.168.0.100:1883
+MQTT_URL=mqtt://IP:PORT
 
 API_KEY=key
 ```
