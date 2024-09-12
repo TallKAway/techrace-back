@@ -1,6 +1,6 @@
 <h1 align="center"><strong>Techrace API</strong></h1>
 
-<div align="center"><h2>🚀 Cet Api est construit avec la stack : Node js - Express - TypeScript - PostgreSQL - Prisma </h2></div>
+<div align="center"><h2>🚀 This Api is built with the following stack: Node js - Express - TypeScript - PostgreSQL - Prisma </h2></div>
 
 <h1 align="center">
 
@@ -10,7 +10,7 @@
 
 ## Installation
 
-Créer le fichier .env et ajouter la connexion a la base de données et le numero du port
+Create .env file and add port, database url, mqtt url and api key
 
 ```sh
 PORT=3002
@@ -26,42 +26,42 @@ MQTT_URL=mqtt://IP:PORT
 API_KEY=key
 ```
 
-Installer les dépendences du projet
+Install project dependencies
 
 ```sh
 npm install
 ```
 
-Lancer Docker et démarrer les services
+Launch Docker and start services
 
 ```sh
 docker-compose up --build
 ```
 
-Appliquer les migrations
+Apply migrations
 
 ```sh
 npx prisma migrate dev
 ```
 
-Générer le client prisma
+Generate prisma client
 
 ```sh
 npx prisma generate
 ```
 
-Démarrer le projet en mode dev
+Start the project in dev mode
 
 ```sh
 npm run dev
 ```
 
-## Documentation de l'Api
+## Api documentation
 
-Pour accéder à la documentation,
+To access the documentation,
 
 ```sh
-# Tapper l'url suivant dans votre navigateur
+# Type the following url into your browser
 
 http://localhost:3002/api-docs/
 ```
